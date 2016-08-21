@@ -1,0 +1,170 @@
+{% extends 'valkyrie.html' %}
+
+{% block title %}{% if id %}{{ id.0.0 }}{% else %}No entry!{% endif %}{% endblock %}
+
+{% block body %}
+
+{% if id %}
+<section class="valkyrie-page-single-listable__section-header">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-7">
+                {% if image %}
+                {% for url in image %}
+                <div class="col-xs-12 col-md-3">
+                    <a href="{{ url }}" target="_blank">
+                        <img src="{{ url }}" />
+                    </a>
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% if id or image %}
+                <div class="col-xs-12 col-md-4">
+                    {% if id %}
+                    {% for id_entry in id %}
+                    <h1>{{ id_entry.0 }}
+                        {% if id_entry.2 %}
+                        {% for id_button_entry in id_entry.2 %}
+                        <a data-toggle="modal" data-target="#{{ id_button_entry.4 }}">
+                            <span class="{{ id_button_entry.9 }}"></span>
+                        </a>
+                        {% endfor %}
+                        {% endif %}
+                    </h1>
+                    <h2>{{ id_entry.1 }}</h2>
+                    <br />
+                    {% endfor %}
+                    {% endif %}
+                    {% if info %}
+                    <div class="valkyrie-page-single-listable__section-header__basic-info">
+                        {% for point in info %}
+                        <h4>{% if point.0 %}{{ point.0 }}: {% endif %}{{ point.1 }}</h4>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
+            {% if id %}
+            {% for id_entry in id %}
+            {% for id_modal_entry in id_entry.2 %}
+            {% include id_modal_entry.0 with embedded_form=id_modal_entry.1 form=id_modal_entry.2 id=id_modal_entry.3 id_name=id_modal_entry.4 modal_title=id_modal_entry.5 button_class=id_modal_entry.6 submit_action=id_modal_entry.7 formal_action=id_modal_entry.8 button_style=id_modal_entry.9 form_class_name=id_modal_entry.10 form_enctype=id_modal_entry.11 modal_body_header=id_modal_entry.12 modal_body_list=id_modal_entry.13 modal_body_footer=id_modal_entry.14 %}
+            {% endfor %}
+            {% endfor %}
+            {% endif %}
+            {% if id_pool %}
+            <div class="col-xs-12 col-md-5">
+                <h3>ID Pool</h3>
+                <div class="valkyrie-page-single-listable__section-header__id-pool">
+                    {% for id_entry in id_pool %}
+                    <h5>{{ id_entry.0 }}:
+                        <a href="/{{ id_entry.2 }}/{{ id_entry.1 }}">{{ id_entry.1 }}</a>
+                    </h5>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        {% if widget %}
+        {% for widget_entry in widget %}
+        {% include widget_entry.0 with value=widget_entry.1 %}
+        {% endfor %}
+        {% endif %}
+    </div>
+
+</section>
+
+{% if listable %}
+{% for item in listable %}
+<section class="valkyrie-page-single-listable__section-listable">
+
+    <div class="valkyrie-page-single-listable__section-listable__div-container">
+        <table>
+            <tr>
+                <td>
+                    <h3>{{ item.0 }}
+                        {% if item.4 %}
+                        {% for listable_button_entry in item.4 %}
+                        <a data-toggle="modal" data-target="#{{ listable_button_entry.4 }}">
+                            <span class="{{ listable_button_entry.9 }}"></span>
+                        </a>
+                        {% endfor %}
+                        {% endif %}
+                    </h3>
+                </td>
+            </tr>
+         </table>
+        {% for subitem in item.1 %}
+        <div class="valkyrie-page-single-listable__section-listable__div-row">
+            <div>
+                <div>
+                    <h4>
+                        {% if item.3 %}
+                        <a href="/{{ item.2 }}/{{ subitem.0 }}">
+                            {{ subitem.0 }}
+                        </a>
+                        {% elif item.2 %}
+                        <a href="/{{ item.2 }}/{{ subitem }}">
+                            {{ subitem }}
+                        </a>
+                        {% else %}
+                        {{ subitem }}
+                        {% endif %}
+                    </h4>
+                </div>
+                {% if item.3 %}
+                <div class="valkyrie-page-single-listable__section-listable__{{ item.2 }}-{{ item.3 }}-{{ subitem.1 }}">
+                    <h4>{{ subitem.2 }}</h4>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% if item.4 %}
+    {% for listable_modal_entry in item.4 %}
+    {% include listable_modal_entry.0 with embedded_form=listable_modal_entry.1 form=listable_modal_entry.2 id=listable_modal_entry.3 id_name=listable_modal_entry.4 modal_title=listable_modal_entry.5 button_class=listable_modal_entry.6 submit_action=listable_modal_entry.7 formal_action=listable_modal_entry.8 button_style=listable_modal_entry.9 form_class_name=listable_modal_entry.10 form_enctype=listable_modal_entry.11 modal_body_header=listable_modal_entry.12 modal_body_list=listable_modal_entry.13 modal_body_footer=listable_modal_entry.14 %}
+    {% endfor %}
+    {% endif %}
+
+</section>
+{% endfor %}
+{% endif %}
+
+{% if blobs %}
+<section class="valkyrie-page-single-listable__section-blobs">
+
+    <div>
+        <h2>Associated Blobs</h2>
+        <div>
+            <table>
+                {% for blob in blobs.1 %}
+                <tr>
+                    <td>
+                        <img src="{{ blobs.0 }}{{ blob.gcs_id }}" />
+                    </td>
+                    <td>
+                        <h4><a href="/blob/{{ blob.id }}/">{{ blob.id }}</a></h4>
+                    </td>
+                    <td></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+</section>
+{% endif %}
+
+{% else %}
+<section class="valkyrie-page-single-listable__section-header">
+
+    <div>
+        <h1>No entry for this ID!</h1>
+    </div>
+
+</section>
+{% endif %}
+
+{% endblock %}

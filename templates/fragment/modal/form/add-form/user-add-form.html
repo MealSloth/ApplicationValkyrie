@@ -1,0 +1,76 @@
+{% csrf_token %}
+<div class="{{ form_class_name }}">
+    <table>
+        <tr>
+            <td><label for="first_name">First Name:</label></td>
+        </tr>
+        <tr>
+            <td>{{ form.first_name.errors }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.first_name }}</td>
+        </tr>
+        <tr>
+            <td><label for="last_name">Last Name:</label></td>
+        </tr>
+        <tr>
+            <td>{{ form.last_name.errors }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.last_name }}</td>
+        </tr>
+        <tr>
+            <td><label for="gender">Gender:</label></td>
+        </tr>
+        <tr>
+            <td>{{ form.gender.errors }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.gender }}</td>
+        </tr>
+        <tr>
+            <td><label for="email">Email:</label></td>
+        </tr>
+        <tr>
+            <td>{{ form.email.errors }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.email }}</td>
+        </tr>
+        <td><label for="password">Password:</label></td>
+        </tr>
+        <tr>
+            <td>{{ form.password.errors }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.password }}</td>
+        </tr>
+        </tr>
+        <td><label for="password_confirm">Confirm password:</label></td>
+        </tr>
+        <tr>
+            <td>{{ form.password_confirm.errors }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.password_confirm }}</td>
+        </tr>
+        <tr>
+            <td><label for="phone_number">Phone Number:</label></td>
+        </tr>
+        <tr>
+            <td>{{ form.phone_number.errors }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.phone_number }}</td>
+        </tr>
+        <tr>
+            <td><label for="date_of_birth">Date of Birth:</label></td>
+        </tr>
+        <tr>
+            <td>{{ form.dob_year.errors }} {{ form.dob_month.errors }} {{ form.dob_day.errors }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.dob_year }} {{ form.dob_month }} {{ form.dob_day }}</td>
+        </tr>
+    </table>
+</div>

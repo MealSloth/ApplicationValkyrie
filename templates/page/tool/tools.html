@@ -1,0 +1,49 @@
+{% extends 'valkyrie.html' %}
+
+{% block title %}Tools{% endblock %}
+
+{% block body %}
+
+<section class="valkyrie-page-tools__section-header">
+
+    <div>
+
+    </div>
+
+</section>
+
+<section class="valkyrie-page-tools__section-body-1">
+
+    <div>
+        {% for section in sections %}
+        <a data-toggle="collapse" data-target="#valkyrie-page-tools__div-{{ section.0|lower }}__collapsible">
+            <span>{{ section.0 }} <span class="caret"></span></span>
+        </a>
+        <div class="collapse valkyrie-page-tools__section-listables" id="valkyrie-page-tools__div-{{ section.0|lower }}__collapsible">
+            <table>
+                <tr>
+                    {% for button_entry in section.1 %}
+                    <td>
+                        <div>
+                            <a data-toggle="modal" data-target="#{{ button_entry.4 }}">
+                                <span>{{ button_entry.8 }}</span>
+                            </a>
+                        </div>
+                    </td>
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
+        {% endfor %}
+        <div>
+            {% for modal_section in sections %}
+            {% for modal_entry in modal_section.1 %}
+            {% include modal_entry.0 with embedded_form=modal_entry.1 form=modal_entry.2 id=modal_entry.3 id_name=modal_entry.4 formal_name=modal_entry.5 button_class=modal_entry.6 submit_action=modal_entry.7 formal_action=modal_entry.8 form_class_name=modal_entry.10 form_enctype=modal_entry.11 %}
+            {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}

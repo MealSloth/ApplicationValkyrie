@@ -1,0 +1,23 @@
+{% csrf_token %}
+<div class="{{ form_class_name }}">
+    <table>
+        <tr>
+            <td><label for="url_suffix">URL Suffix:</label></td>
+        </tr>
+        <tr>
+            <td>{{ form.url_suffix.errors }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.url_suffix }}</td>
+        </tr>
+        <tr>
+            <td><label for="image">Image:</label></td>
+        </tr>
+        <tr>
+            <td>{{ form.image.errors }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.image }}</td>
+        </tr>
+    </table>
+</div>

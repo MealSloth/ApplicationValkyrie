@@ -1,0 +1,76 @@
+{% extends 'valkyrie.html' %}
+
+{% block title %}Add Auth User{% endblock %}
+
+{% block body %}
+
+<section class="valkyrie-page-form-add__section-header">
+
+    <div>
+
+    </div>
+
+</section>
+
+<section class="valkyrie-page-form-add__section-form">
+
+    <div>
+        <form action="/auth-user-add/" method="post"> {% csrf_token %}
+            <div>
+                <table>
+                    <tr>
+                        <td><label for="first_name">First Name:</label></td>
+                    </tr>
+                    <tr>
+                        <td>{{ form.first_name.errors }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form.first_name }}</td>
+                    </tr>
+                    <tr>
+                        <td><label for="last_name">Last Name:</label></td>
+                    </tr>
+                    <tr>
+                        <td>{{ form.last_name.errors }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form.last_name }}</td>
+                    </tr>
+                    <tr>
+                        <td><label for="username">Username:</label></td>
+                    </tr>
+                    <tr>
+                        <td>{{ form.username.errors }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form.username }}</td>
+                    </tr>
+                    <tr>
+                        <td><label for="password">Password:</label></td>
+                    </tr>
+                    <tr>
+                        <td>{{ form.password.errors }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form.password }}</td>
+                    </tr>
+                    <tr>
+                        <td><label for="password_confirm">Confirm password:</label></td>
+                    </tr>
+                    <tr>
+                        <td>{{ form.password_confirm.errors }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form.password_confirm }}</td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Submit"/></td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% csrf_token %}
+<div class="{{ form_class_name }}">
+    <table>
+        <tr>
+            <td><label for="author">Author:</label></td>
+        </tr>
+        <tr>
+            <td>{{ form.author_id.errors }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.author_id }}</td>
+        </tr>
+        <tr>
+            <td><label for="title">Title:</label></td>
+        </tr>
+        <tr>
+            <td>{{ form.title.errors }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.title }}</td>
+        </tr>
+        <tr>
+            <td><label for="short_description">Short Description:</label></td>
+        </tr>
+        <tr>
+            <td>{{ form.short_description.errors }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.short_description }}</td>
+        </tr>
+        <tr>
+            <td><label for="long_description">Full blog post:</label></td>
+        </tr>
+        <tr>
+            <td>{{ form.long_description.errors }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.long_description }}</td>
+        </tr>
+        {% if form.image %}
+        <tr>
+            <td><label for="image">Image:</label></td>
+        </tr>
+        <tr>
+            <td>{{ form.image.errors }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.image }}</td>
+        </tr>
+        {% endif %}
+        {% if error %}
+            <tr>
+                <td>{{ error }}</td>
+            </tr>
+        {% endif %}
+    </table>
+</div>

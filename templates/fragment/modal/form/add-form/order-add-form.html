@@ -1,0 +1,32 @@
+{% csrf_token %}
+<div class="{{ form_class_name }}">
+    <table>
+        <tr>
+            <td><label for="consumer_id">Consumer:</label></td>
+        </tr>
+        <tr>
+            <td>{{ form.consumer_id.errors }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.consumer_id }}</td>
+        </tr>
+        <tr>
+            <td><label for="order_type">Type:</label></td>
+        </tr>
+        <tr>
+            <td>{{ form.order_type.errors }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.order_type }}</td>
+        </tr>
+        <tr>
+            <td><label for="amount">Amount:</label></td>
+        </tr>
+        <tr>
+            <td>{{ form.amount.errors }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.amount }}</td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,21 @@
+<div class="modal fade" id="{{ id_name }}" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/{{ submit_action }}/{% if id %}{{ id }}/{% endif %}" method="post"
+                  {% if form_enctype %}enctype="{{ form_enctype }}"{% endif %}>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">{{ modal_title }}</h4>
+                </div>
+                <div class="modal-body">
+                    {% include embedded_form with form=form id=id form_class_name=form_class_name %}
+                </div>
+                <div class="modal-footer">
+                    <input class="{{ button_class }}" type="submit" value="{{ formal_action }}">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

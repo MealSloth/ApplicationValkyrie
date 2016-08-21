@@ -1,0 +1,90 @@
+<section class="valkyrie-fragment-navbar__section-navbar__desktop-only valkyrie-fragment-navbar__desktop-only">
+
+    <div>
+        <div>
+            <table>
+                <tr>
+                    <td><h4><a href="/">Valkyrie</a></h4></td>
+                    <td><a href="/users">Users</a></td>
+                    <td><a href="/posts">Posts</a></td>
+                    <td><a href="/orders">Orders</a></td>
+                    <td><a href="/reviews">Reviews</a></td>
+                    <td><a href="/blog-posts">Blog Posts</a></td>
+                    <td><a href="/tools">Tools</a></td>
+                    <td>
+                        <a class="dropdown-toggle" id="navmoredropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <span>More</span>
+                            <span class="caret"> </span>
+                        </a>
+                        <ul class="dropdown-menu valkyrie-fragment-navbar__ul-more" aria-labelledby="navmoredropdown">
+                            <li><a href="/user-logins">User Logins</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/consumers">Consumers</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/chefs">Chefs</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/locations">Locations</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/albums">Albums</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/blobs">Blobs</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/billings">Billings</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/profile-photos">Profile Photos</a></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        {% if request.user.is_authenticated %}
+        <div>
+            <table>
+                <tr>
+                    <td class="dropdown" role="menu" aria-labelledby="navnamedropdown">
+                        <a class="dropdown-toggle" id="navnamedropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <span>{{ request.user.first_name }} {{ request.user.last_name }} </span>
+                            <span class="caret"> </span>
+                        </a>
+                        <ul class="dropdown-menu valkyrie-fragment-navbar__ul-name" aria-labelledby="navnamedropdown">
+                            <li><a href="/change-password">Change Password</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/logout">Logout</a></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        {% endif %}
+    </div>
+
+</section>
+
+<section class="valkyrie-fragment-navbar__section-navbar__mobile-only valkyrie-fragment-navbar__mobile-only">
+
+    <div>
+        <h2><a href="/">Valkyrie</a></h2>
+    </div>
+    <button class="btn btn-default" data-toggle="collapse" data-target="#valkyrie-fragment-navbar__div-menu__collapsible">
+        <span class="glyphicon glyphicon-menu-hamburger"></span>
+    </button>
+    <div class="collapse" id="valkyrie-fragment-navbar__div-menu__collapsible">
+        <ul>
+            <li><a href="/users">Users</a></li>
+            <li><a href="/posts">Posts</a></li>
+            <li><a href="/orders">Orders</a></li>
+            <li><a href="/reviews">Reviews</a></li>
+            <li><a href="/blog-posts">Blog Posts</a></li>
+            <li><a href="/tools">Tools</a></li>
+        </ul>
+        {% if request.user.is_authenticated %}
+        <ul>
+            <li role="separator"></li>
+            <li><a href="/change-password">Change Password</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+        {% endif %}
+
+    </div>
+
+</section>

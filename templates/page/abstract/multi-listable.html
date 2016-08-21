@@ -1,0 +1,69 @@
+{% extends 'valkyrie.html' %}
+
+{% block title %}{% if title %}{{ title.0 }}{% endif %}{% endblock %}
+
+{% block body %}
+
+<section class="valkyrie-page-multi-listable__section-searchbar">
+
+    <div>
+        <table>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <div>
+            <h5>
+                {% if title.1 %}
+                {% for button_entry in title.1 %}
+                <a data-toggle="modal" data-target="#{{ button_entry.4 }}">
+                    <span class="{{ button_entry.9 }}">{{ button_entry.8 }}</span>
+                </a>
+                {% endfor %}
+                {% endif %}
+            </h5>
+        </div>
+        <div>
+            {% if title.1 %}
+            {% for modal_entry in title.1 %}
+            {% include modal_entry.0 with embedded_form=modal_entry.1 form=modal_entry.2 id=modal_entry.3 id_name=modal_entry.4 modal_title=modal_entry.5 button_class=modal_entry.6 submit_action=modal_entry.7 formal_action=modal_entry.8 form_class_name=modal_entry.10 form_enctype=modal_entry.11 %}
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+
+</section>
+
+<section class="valkyrie-page-multi-listable__section-listables">
+
+    <div>
+        <table>
+            <tr>
+                {% for header_column in header %}
+                <td {% if header_column.2 %}{% else %}class="valkyrie-page-multi-listable__section-listables__desktop-only"{% endif %}>
+                    <h4>{{ header_column.0 }}</h4>
+                </td>
+                {% endfor %}
+            </tr>
+            {% for entry_row in entry %}
+            <tr>
+                {% for entry_column in entry_row %}
+                <td {% if entry_column.1.2 %}{% else %}class="valkyrie-page-multi-listable__section-listables__desktop-only"{% endif %}>
+                    {% if entry_column.1.1 %}<a href="/{{ entry_column.1.1 }}/{{ entry_column.0 }}">{% endif %}
+                        {{ entry_column.0 }}
+                    {% if entry_column.1.1 %}</a>{% endif %}
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</section>
+
+{% endblock %}
