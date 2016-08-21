@@ -1,4 +1,4 @@
-from _include.Chimera.Chimera.view.user_login.view_user_login_password_change import user_login_password_change as change_user_login_password
+from Chimera.view.user_login.view_user_login_password_change import user_login_password_change as change_user_login_password
 from django.forms import *
 
 

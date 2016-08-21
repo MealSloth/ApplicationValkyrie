@@ -1,6 +1,6 @@
-from _include.Chimera.Chimera.models import ProfilePhoto, User, Album, Blob
+from Chimera.models import ProfilePhoto, User, Album, Blob
 from Valkyrie.view.abstract.view_single_listable import SingleListableView
-from _include.Chimera.Chimera.settings import GCS_URL, PROTOCOL
+from Chimera.settings import GCS_URL, PROTOCOL
 from django.http import HttpResponse
 from django.template import Context
 from django.shortcuts import render

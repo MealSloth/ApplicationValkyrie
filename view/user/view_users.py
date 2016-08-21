@@ -1,6 +1,6 @@
 from Valkyrie.view.abstract.view_multi_listable import MultiListableView
 from Valkyrie.form.user.form_user_add import UserAddForm
-from _include.Chimera.Chimera.models import User
+from Chimera.models import User
 from django.http import HttpResponse
 from django.template import Context
 from django.shortcuts import render

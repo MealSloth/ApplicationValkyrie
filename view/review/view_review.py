@@ -1,6 +1,6 @@
-from _include.Chimera.Chimera.models import Review, Post, Chef, Consumer, Blob, Album
+from Chimera.models import Review, Post, Chef, Consumer, Blob, Album
 from Valkyrie.view.abstract.view_single_listable import SingleListableView
-from _include.Chimera.Chimera.settings import GCS_URL, PROTOCOL
+from Chimera.settings import GCS_URL, PROTOCOL
 from Valkyrie.form.review.form_review_edit import ReviewEditForm
 from django.http import HttpResponse
 from django.template import Context

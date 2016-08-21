@@ -1,7 +1,7 @@
 from Valkyrie.view.abstract.view_single_listable import SingleListableView
-from _include.Chimera.Chimera.settings import GCS_URL, PROTOCOL
+from Chimera.settings import GCS_URL, PROTOCOL
 from Valkyrie.form.blob.form_blob_add import BlobAddForm
-from _include.Chimera.Chimera.models import Album, Blob
+from Chimera.models import Album, Blob
 from django.http import HttpResponse
 from django.template import Context
 from django.shortcuts import render

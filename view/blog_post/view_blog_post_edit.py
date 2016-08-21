@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 
 from Valkyrie.form.blog_post.form_blog_post_edit import BlogPostEditForm
-from _include.Chimera.Chimera.settings import PROTOCOL
+from Chimera.settings import PROTOCOL
 
 
 def blog_post_edit(request, blog_post_id):

@@ -1,5 +1,5 @@
-from _include.Chimera.Chimera.storage_url_suffixes import StorageURLSuffixes
-from _include.Chimera.Chimera.view.blob.view_blob_upload import blob_upload as upload_blob
+from Chimera.storage_url_suffixes import StorageURLSuffixes
+from Chimera.view.blob.view_blob_upload import blob_upload as upload_blob
 from base64 import b64encode
 from django.forms import *
 

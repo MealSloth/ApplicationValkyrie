@@ -1,5 +1,5 @@
-from _include.Chimera.Chimera.view.review.view_review_create import review_create as create_review
-from _include.Chimera.Chimera.models import Post, Consumer, User
+from Chimera.view.review.view_review_create import review_create as create_review
+from Chimera.models import Post, Consumer, User
 from django.forms import *
 
 

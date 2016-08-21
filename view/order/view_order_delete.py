@@ -1,4 +1,4 @@
-from _include.Chimera.Chimera.view.order.view_order_delete import order_delete as delete_order
+from Chimera.view.order.view_order_delete import order_delete as delete_order
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 

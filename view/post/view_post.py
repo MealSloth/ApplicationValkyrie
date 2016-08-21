@@ -1,6 +1,6 @@
-from _include.Chimera.Chimera.models import Post, Order, Album, Blob, Review
+from Chimera.models import Post, Order, Album, Blob, Review
 from Valkyrie.view.abstract.view_single_listable import SingleListableView
-from _include.Chimera.Chimera.settings import GCS_URL, PROTOCOL
+from Chimera.settings import GCS_URL, PROTOCOL
 from Valkyrie.form.order.form_order_add import OrderAddForm
 from Valkyrie.form.post.form_post_edit import PostEditForm
 from Valkyrie.form.review.form_review_add import ReviewAddForm

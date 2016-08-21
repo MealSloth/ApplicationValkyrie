@@ -1,6 +1,6 @@
-from _include.Chimera.Chimera.view.order.view_order_create import order_create as create_order
-from _include.Chimera.Chimera.models import Consumer, User
-from _include.Chimera.Chimera.enums import OrderType
+from Chimera.view.order.view_order_create import order_create as create_order
+from Chimera.models import Consumer, User
+from Chimera.enums import OrderType
 from django.forms import *
 
 

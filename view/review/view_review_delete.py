@@ -1,4 +1,4 @@
-from _include.Chimera.Chimera.view.review.view_review_delete import review_delete as delete_review
+from Chimera.view.review.view_review_delete import review_delete as delete_review
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 

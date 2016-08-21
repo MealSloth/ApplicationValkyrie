@@ -1,6 +1,6 @@
 from Valkyrie.view.abstract.view_multi_listable import MultiListableView
 from Valkyrie.form.blog_post.form_blog_post_add import BlogPostAddForm
-from _include.Chimera.Chimera.models import BlogPost, Author
+from Chimera.models import BlogPost, Author
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import Context

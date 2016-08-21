@@ -1,4 +1,4 @@
-from _include.Chimera.Chimera.view.review.view_review_edit import review_edit as edit_review
+from Chimera.view.review.view_review_edit import review_edit as edit_review
 from django.forms import *
 
 

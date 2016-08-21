@@ -1,4 +1,4 @@
-from _include.Chimera.Chimera.view.post.view_post_modify import post_modify as modify_post
+from Chimera.view.post.view_post_modify import post_modify as modify_post
 from django.forms import *
 
 

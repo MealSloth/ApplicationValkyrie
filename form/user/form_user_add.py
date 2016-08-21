@@ -1,6 +1,6 @@
-from _include.Chimera.Chimera.view.user.view_user_create import user_create as create_user
-from _include.Chimera.Chimera.models import User
-from _include.Chimera.Chimera.enums import *
+from Chimera.view.user.view_user_create import user_create as create_user
+from Chimera.models import User
+from Chimera.enums import *
 from datetime import datetime
 from django.forms import *
 

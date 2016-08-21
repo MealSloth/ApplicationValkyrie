@@ -1,4 +1,4 @@
-from _include.Chimera.Chimera.view.user.view_user_delete import user_delete as delete_user
+from Chimera.view.user.view_user_delete import user_delete as delete_user
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 

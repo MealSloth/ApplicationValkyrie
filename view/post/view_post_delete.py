@@ -1,4 +1,4 @@
-from _include.Chimera.Chimera.view.post.view_post_delete import post_delete as delete_post
+from Chimera.view.post.view_post_delete import post_delete as delete_post
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 

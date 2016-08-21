@@ -1,5 +1,5 @@
-from _include.Chimera.Chimera.view.blog_post.view_blog_post_create import blog_post_create as create_blog_post
-from _include.Chimera.Chimera.models import Author
+from Chimera.view.blog_post.view_blog_post_create import blog_post_create as create_blog_post
+from Chimera.models import Author
 from django.forms import *
 
 

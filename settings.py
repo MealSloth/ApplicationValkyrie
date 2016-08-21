@@ -1,16 +1,6 @@
-from _include.Chimera.Chimera.databases import databases
-import sys
+from Chimera.databases import databases
 import os
 
-
-git_submodules = [
-    '_include/Chimera/',
-]
-
-for directory in git_submodules:
-    path = os.path.join(directory)
-    if path not in sys.path:
-        sys.path.append(path)
 
 PROJECT_PATH = os.path.abspath(os.path.dirname(__name__))
 
@@ -54,16 +44,12 @@ STATICFILES_DIRS = ()
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 SECRET_KEY = 'wi=od%+rgt^bdabhp3qdq)b!xb0+_q2^faa$dkh65wja-%j&n+'
 
 TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -76,8 +62,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 ROOT_URLCONF = 'Valkyrie.urls'
@@ -85,7 +69,7 @@ ROOT_URLCONF = 'Valkyrie.urls'
 WSGI_APPLICATION = 'Valkyrie.wsgi.application'
 
 TEMPLATE_DIRS = (
-    PROJECT_PATH + '/templates',
+    os.path.abspath(os.path.join(PROJECT_PATH, 'templates')),
 )
 
 INSTALLED_APPS = (

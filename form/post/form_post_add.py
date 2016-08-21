@@ -1,5 +1,5 @@
-from _include.Chimera.Chimera.view.post.view_post_create import post_create as create_post
-from _include.Chimera.Chimera.models import User
+from Chimera.view.post.view_post_create import post_create as create_post
+from Chimera.models import User
 from django.forms import *
 
 

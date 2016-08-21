@@ -1,5 +1,5 @@
 from Valkyrie.view.abstract.view_multi_listable import MultiListableView
-from _include.Chimera.Chimera.models import Post, Review
+from Chimera.models import Post, Review
 from django.http import HttpResponse
 from django.template import Context
 from django.shortcuts import render

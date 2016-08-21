@@ -1,6 +1,6 @@
 from Valkyrie.form.user_login.form_user_login_password_change import UserLoginPasswordChangeForm
 from Valkyrie.view.abstract.view_single_listable import SingleListableView
-from _include.Chimera.Chimera.models import UserLogin, User
+from Chimera.models import UserLogin, User
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import Context

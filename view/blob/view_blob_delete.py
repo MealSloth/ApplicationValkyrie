@@ -1,4 +1,4 @@
-from _include.Chimera.Chimera.view.blob.view_blob_delete import blob_delete as delete_blob
+from Chimera.view.blob.view_blob_delete import blob_delete as delete_blob
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
