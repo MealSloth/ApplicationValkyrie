@@ -7,16 +7,28 @@
 <section class="valkyrie-page-multi-listable__section-searchbar">
 
     <div>
-        <table>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </table>
-        <div>
+        {% if entry.0 and entry.0.0 %}
+        <form class="pull-left">
+            <table class="valkyrie-page-multi-listable__searchbar">
+                <tr>
+                    <td>
+                        <select id="valkyrie-page-multi-listable__input-field" title="Field">
+                            {% for option in header %}
+                            <option value="{{ option.0 }}">{{ option.0 }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td>
+                        <input id="valkyrie-page-multi-listable__input-query" title="Query" type="text">
+                    </td>
+                    <td>
+                        <input class="btn btn-primary" type="submit" value="Search">
+                    </td>
+                </tr>
+            </table>
+        </form>
+        {% endif %}
+        <div class="pull-right">
             <h5>
                 {% if title.1 %}
                 {% for button_entry in title.1 %}

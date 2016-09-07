@@ -1,8 +1,8 @@
+from django.contrib.auth import authenticate, login as user_login
 from django.http import HttpResponse, HttpResponseRedirect
+from Valkyrie.form.auth.form_login import LoginForm
 from django.template import Context
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login as user_login
-from Valkyrie.form.auth.form_login import LoginForm
 
 
 def login(request):

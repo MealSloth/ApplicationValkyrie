@@ -68,10 +68,6 @@ ROOT_URLCONF = 'Valkyrie.urls'
 
 WSGI_APPLICATION = 'Valkyrie.wsgi.application'
 
-TEMPLATE_DIRS = (
-    os.path.abspath(os.path.join(PROJECT_PATH, 'templates')),
-)
-
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
