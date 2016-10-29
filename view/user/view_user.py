@@ -1,4 +1,4 @@
-from Chimera.models import User, Post, Album, Blob, ProfilePhoto
+from Chimera.models import User, Post, Album, Blob, ProfilePhoto, Chef, UserLogin, Consumer, Location, Billing
 from Valkyrie.view.abstract.view_single_listable import SingleListableView
 from Chimera.settings import GCS_URL, PROTOCOL
 from Valkyrie.form.post.form_post_add import PostAddForm
@@ -21,7 +21,7 @@ class UserView(SingleListableView):
         else:
             current_user = current_user[0]
 
-        profile_photo = ProfilePhoto.objects.get(pk=current_user.profile_photo_id)
+        profile_photo = ProfilePhoto.objects.get(user_id=current_user.id)
         album = Album.objects.get(pk=profile_photo.album_id)
         blob_list = Blob.objects.filter(album_id=album.id)
 
@@ -73,18 +73,24 @@ class UserView(SingleListableView):
 
         widget = []
 
+        user_login = UserLogin.objects.get(user_id=current_user.id)
+        consumer = Consumer.objects.get(user_id=current_user.id)
+        chef = Chef.objects.get(user_id=current_user.id)
+        location = Location.objects.get(user_id=current_user.id)
+        billing = Billing.objects.get(user_id=current_user.id)
+
         id_pool = [
-            ('User Login ID', current_user.user_login_id, 'user-login'),
-            ('Consumer ID', current_user.consumer_id, 'consumer'),
-            ('Chef ID', current_user.chef_id, 'chef'),
-            ('Location ID', current_user.location_id, 'location'),
-            ('Billing ID', current_user.billing_id, 'billing'),
-            ('Profile Photo ID', current_user.profile_photo_id, 'profile-photo'),
+            ('User Login ID', user_login.id, 'user-login'),
+            ('Consumer ID', consumer.id, 'consumer'),
+            ('Chef ID', chef.id, 'chef'),
+            ('Location ID', location.id, 'location'),
+            ('Billing ID', billing.id, 'billing'),
+            ('Profile Photo ID', profile_photo.id, 'profile-photo'),
         ]
 
         email_addresses = [current_user.email, ]
         phone_numbers = [current_user.phone_number, ]
-        posts = Post.objects.filter(chef_id=current_user.chef_id)
+        posts = Post.objects.filter(chef_id=chef.id)
 
         post_array = []
 
