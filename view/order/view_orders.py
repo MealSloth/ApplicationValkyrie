@@ -19,7 +19,6 @@ class OrdersView(MultiListableView):
 
         header = [
             ('ID', 'order', True),
-            ('Chef', 'chef', False),
             ('Consumer', 'consumer', False),
             ('Status', '', True),
             ('Type', '', True),
@@ -33,12 +32,11 @@ class OrdersView(MultiListableView):
             entry.append(
                 [
                     (order.id, header[0]),
-                    (order.chef_id, header[1]),
-                    (order.consumer_id, header[2]),
-                    (order.get_order_status_display(), header[3]),
-                    (order.get_order_type_display(), header[4]),
-                    (order.amount, header[5]),
-                    (order.order_time, header[6]),
+                    (order.consumer_id, header[1]),
+                    (order.get_order_status_display(), header[2]),
+                    (order.get_order_type_display(), header[3]),
+                    (order.amount, header[4]),
+                    (order.order_time, header[5]),
                 ]
             )
 

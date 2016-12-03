@@ -91,9 +91,9 @@ class PostView(SingleListableView):
         widget = [('fragment/widget/single-listable/post-status-widget.html', current_post.post_status), ]
 
         id_pool = [
-            ('Chef ID', current_post.chef_id, 'chef'),
-            ('Location ID', current_post.location_id, 'location'),
-            ('Album ID', current_post.album_id, 'album'),
+            ('Chef ID', current_post.chef.id, 'chef'),
+            ('Location ID', current_post.chef.location.id, 'location'),
+            ('Album ID', current_post.album.id, 'album'),
         ]
 
         orders = Order.objects.filter(post_id=current_post.id)

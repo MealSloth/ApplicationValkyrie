@@ -1,5 +1,5 @@
 from Valkyrie.view.abstract.view_single_listable import SingleListableView
-from Chimera.models import Order
+from Chimera.models import Order, Post, Chef, Location
 from django.http import HttpResponse
 from django.template import Context
 from django.shortcuts import render
@@ -50,11 +50,11 @@ class OrderView(SingleListableView):
         widget = [('fragment/widget/single-listable/order-status-widget.html', current_order.order_status), ]
 
         id_pool = [
-            ('Post ID', current_order.post_id, 'post'),
-            ('Consumer ID', current_order.consumer_id, 'consumer'),
-            ('Chef ID', current_order.chef_id, 'chef'),
-            ('Location ID', current_order.location_id, 'location'),
-            ('Billing ID', current_order.billing_id, 'billing'),
+            ('Post ID', current_order.post.id, 'post'),
+            ('Chef ID', current_order.post.chef.id, 'chef'),
+            ('Consumer ID', current_order.consumer.id, 'consumer'),
+            ('Location ID', current_order.post.chef.location.id, 'location'),
+            ('Billing ID', current_order.billing.id, 'billing'),
             ('Order Summary ID', current_order.order_summary_id, 'order-summary'),
         ]
 
