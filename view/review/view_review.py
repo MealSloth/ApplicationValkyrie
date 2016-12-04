@@ -22,10 +22,7 @@ class ReviewView(SingleListableView):
             current_review = current_review[0]
 
         post = Post.objects.get(pk=current_review.post_id)
-        album = Album.objects.get(pk=post.album_id)
-        blob_list = Blob.objects.filter(album_id=album.id)
-        chef = Chef.objects.get(pk=post.chef_id)
-        consumer = Consumer.objects.get(pk=current_review.consumer_id)
+        blob_list = Blob.objects.filter(album=post.album)
 
         image = []
 
@@ -88,11 +85,11 @@ class ReviewView(SingleListableView):
         widget = [('fragment/widget/single-listable/review-rating-widget.html', current_review.rating), ]
 
         id_pool = [
-            ('Post ID', current_review.post_id, 'post'),
-            ('Chef ID', post.chef_id, 'chef'),
+            ('Post ID', current_review.post.id, 'post'),
+            ('Chef ID', post.chef.id, 'chef'),
         ]
 
-        blobs = [PROTOCOL + GCS_URL, Blob.objects.filter(album_id=post.album_id)]
+        blobs = [PROTOCOL + GCS_URL, Blob.objects.filter(album_id=post.album.id)]
 
         kwargs = {
             'image': image,
